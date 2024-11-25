@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --main-color: #12f7d6;
+    --dark-color: #292f36;
+    --electric-blue: #0078FF;
+    --neon-purple: #A020F0;
+    --slate-gray: #2F4F4F;
+    --white-color: #FFFFFF;
+    --dark-c: #1A1A1A;
+    --soft-gray: #F5F5F5;
+    --white-smoke: #F8F8F8;
+    --deep-orange: #FF4500;
+    --bright-yellow: #FFD700;
+}
+
+* {
+    color: inherit;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: "Red Hat Display", sans-serif;
+    background-color: var(--dark-c);
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dotted #efefef;
+}
+
+/* img {
+    max-width: 100%;
+} */
+
+h1 {
+    background-color: var(--dark-c);
+    color: var(--neon-purple);
+}
+
+.main-button,
+.secondary-button {
+    background-color: var(--neon-purple);
+    border: 0.5px solid var(--neon-purple);
+    border-radius: 5px;
+    min-width: fit-content;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: var(--white-color);
+}
+
+.secondary-button {
+    background-color: var(--deep-orange);
+    border-color: var(--deep-orange);
+}
+
+.main-button:hover,
+.secondary-button:hover {
+    border-color: var(--bright-yellow)
+}
+
+/* players list */
+
+.players {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 30px;
+}
+
+.players h1 {
+    padding: 30px;
+}
+
+.players .players-main {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 30px;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
+}
+
+.players .players-main .players-all {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--dark-color);
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+
+.players .players-main .players-filter {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+    background-color: var(--dark-color);
+    padding: 20px;
+    min-width: fit-content;
+    border-radius: 10px;
+
+}
+
+/* ==============   Card   ============== */
+
+.card-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 312px;
+    position: relative;
+}
+
+.card-full image {
+    position: relative;
+    width: 200px;
+}
+
+.card {
+    color: var(--white-color);
+    /* background-color: var(--neon-purple); */
+    position: absolute;
+    bottom: 13px;
+}
+
+.card .card-inner {
+    /* max-width: 160px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-top {
+    display: flex;
+    color: #d3cca3;
+    justify-content: flex-start;
+    align-items: start;
+    width: 170px;
+}
+
+.card .card-top .info {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.card .card-top .info .position {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.card .card-top .image img {
+    width: 140px;
+}
+
+.card .card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.card .card-bottom .name {
+    color: #d3cca3;
+}
+
+.card .card-bottom .stats ul {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.card .card-bottom .stats ul li {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.card .card-bottom .stats ul li span:first-child {
+    font-size: 8px;
+}
+
+
+.card .card-bottom .country-club {
+    display: flex;
+    margin-top: 9px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card .country img,
+.card .club img {
+    width: 20px;
+}
