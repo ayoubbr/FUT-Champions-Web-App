@@ -1,13 +1,5 @@
 const allPlayers = document.getElementById("players-all");
 
-// const element = document.createElement('div');
-// element.classList.add("card-full");
-// element.innerHTML = ` <img src="assets/player-card.webp" alt="">
-//                         <div class="card" id="the-card"></div>`;
-
-// allPlayers.appendChild(element);
-// const theCard = document.getElementById("the-card");
-
 async function getData() {
     let data = await fetch("./players.json");
     let dataObject = await data.json();
@@ -44,7 +36,7 @@ function createDiv(player) {
                                 <div class="name">${player.name}</div>
                                 <div class="stats">
                                     <div>${player.position !== "GK" ?
-                                        `<ul>
+            `<ul>
                                             <li><span>PAC</span><span>${player.pace}</span></li>
                                             <li><span>SHO</span><span>${player.shooting}</span></li>
                                             <li><span>PAS</span><span>${player.passing}</span></li>
@@ -52,7 +44,7 @@ function createDiv(player) {
                                             <li><span>DEF</span><span>${player.defending}</span></li>
                                             <li><span>PHY</span><span>${player.physical}</span></li>
                                         </ul> `:
-                                        `<ul>
+            `<ul>
                                             <li><span>DIV</span><span>${player.diving}</span></li>
                                             <li><span>HAN</span><span>${player.handling}</span></li>
                                             <li><span>KIC</span><span>${player.kicking}</span></li>
@@ -76,3 +68,15 @@ function createDiv(player) {
 }
 getData();
 
+
+const addPlayer = document.getElementById('add-player');
+const modalContainer = document.getElementById('modal-container');
+const close = document.getElementById('close');
+
+addPlayer.addEventListener('click', () => {
+    modalContainer.classList.add('show');
+});
+
+close.addEventListener('click', () => {
+    modalContainer.classList.remove('show');
+});

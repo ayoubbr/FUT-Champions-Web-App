@@ -11,7 +11,7 @@
 
 <body>
     <main class="players">
-        <h1>EA FC 25 Players</h1>
+        <h1 class="main-title">EA FC 25 Players</h1>
         <div class="players-main">
             <div class="players-all" id="players-all">
                 <!-- ==================  add player here ==================== -->
@@ -19,6 +19,103 @@
             <div class="players-filter">
                 <a href="#" id="add-player" class="main-button">Add player</a>
                 <a href="#" class="secondary-button">Go back to Team</a>
+            </div>
+
+            <div class="modal-container" id="modal-container">
+                <div class="modal">
+                    <h1>Add a player here</h1>
+                    <form>
+                        <div class="one-line">
+                            <div class="one-input">
+                                <label for="name">Player Name</label>
+                                <input type="text" id="name" placeholder="e.g Lionel Messi">
+                            </div>
+                            <div class="one-input">
+                                <label for="photo">Image URL</label>
+                                <input type="text" id="photo"
+                                    placeholder="https://cdn.sofifa.net/players/158/023/25_120.png">
+                            </div>
+                            <div class="one-input">
+                                <label for="name">Position</label>
+                                <select name="positions" id="position">
+                                    <option disabled selected>Select a position</option>
+                                    <option value="GK">GK</option>
+                                    <option value="RB">RB</option>
+                                    <option value="CB">CB</option>
+                                    <option value="CDM">CDM</option>
+                                    <option value="CM">CM</option>
+                                    <option value="CAM">CAM</option>
+                                    <option value="RM">RM</option>
+                                    <option value="LM">LM</option>
+                                    <option value="RW">RW</option>
+                                    <option value="LW">LW</option>
+                                    <option value="CF">CF</option>
+                                    <option value="ST">ST</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="one-line">
+                            <div class="one-input">
+                                <label for="nationality">Nationality</label>
+                                <input type="text" id="nationality" placeholder="e.g Argentina">
+                            </div>
+                            <div class="one-input">
+                                <label for="flag">Country flag</label>
+                                <input type="text" id="flag"
+                                    placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                            </div>
+                            <div class="one-input">
+                                <label for="club">Club</label>
+                                <input type="text" id="club" placeholder="e.g Inter Miami">
+                            </div>
+                        </div>
+                        <div class="one-line">
+                            <div class="one-input">
+                                <label for="logo">Club logo</label>
+                                <input type="text" id="logo"
+                                    placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                            </div>
+                            <div class="one-input">
+                                <label for="rating">Rating</label>
+                                <input type="number" id="rating" placeholder="e.g 95">
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="one-line">
+                            <div class="one-input">
+                                <label for="pace">Pace</label>
+                                <input type="number" id="pace" placeholder="e.g 99">
+                            </div>
+                            <div class="one-input">
+                                <label for="shooting">Shooting</label>
+                                <input type="number" id="shooting" placeholder="e.g 99">
+                            </div>
+                            <div class="one-input">
+                                <label for="passing">Passing</label>
+                                <input type="number" id="passing" placeholder="e.g 99">
+                            </div>
+                        </div>
+                        <div class="one-line">
+                            <div class="one-input">
+                                <label for="dribbling">Dribbling</label>
+                                <input type="number" id="dribbling" placeholder="e.g 99">
+                            </div>
+                            <div class="one-input">
+                                <label for="defending">Defending</label>
+                                <input type="number" id="defending" placeholder="e.g 99">
+                            </div>
+                            <div class="one-input">
+                                <label for="physical">Physical</label>
+                                <input type="number" id="physical" placeholder="e.g 99">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="buttons">
+                        <button class="main-button">Submit</button>
+                        <button class="secondary-button" id="close">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
