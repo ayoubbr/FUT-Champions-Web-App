@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
@@ -21,9 +23,17 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Red Hat Display", sans-serif;
     background-color: var(--dark-c);
+    background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.5)), url("./assets/fifa-stadium2.webp");
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 65px 100px;
 }
 
 ul {
@@ -68,15 +78,338 @@ hr {
     border-color: var(--bright-yellow)
 }
 
+/* body {
+    background-color: #13151d;
+    background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.5)), url("./assets/fifa-stadium2.webp");
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 65px 100px;
+} */
+.players-heading {
+    display: none !important;
+}
+
+.my-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.players-container {
+    background-size: cover;
+    width: 59%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    bottom: 20px;
+    left: 80px;
+}
+
+
+.pitch-image {
+    position: relative;
+    width: 850px;
+    filter: contrast(160%);
+}
+
+#player1 {
+    grid-area: 8 / 3 / 10 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player2 {
+    grid-area: 6 / 4 / 8 / 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player3 {
+    grid-area: 6 / 1 / 8 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player4 {
+    grid-area: 6 / 2 / 8 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player5 {
+    grid-area: 6 / 3 / 8 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player6 {
+    grid-area: 4 / 4 / 6 / 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player7 {
+    grid-area: 4 / 1 / 6 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player8 {
+    grid-area: 4 / 2 / 6 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player9 {
+    grid-area: 4 / 3 / 6 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player10 {
+    grid-area: 2 / 3 / 4 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player11 {
+    grid-area: 2 / 2 / 4 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player11::before,
+#player10::before,
+#player9::before,
+#player8::before,
+#player7::before,
+#player6::before,
+#player5::before,
+#player4::before,
+#player3::before,
+#player2::before,
+#player1::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    border: 50%;
+    border-radius: 50%;
+    border: 2px solid #e6cc8c;
+    COLOR: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+}
+
+#player1::before {
+    bottom: 35px;
+    content: "GK";
+}
+
+#player2::before {
+    bottom: 35px;
+    content: "RB";
+}
+
+#player3::before {
+    bottom: 35px;
+    content: "LB";
+}
+
+#player4::before {
+    bottom: 35px;
+    content: "CB";
+}
+
+#player5::before {
+    bottom: 35px;
+    content: "CB";
+}
+
+#player6::before {
+    bottom: 35px;
+    content: "RM";
+}
+
+#player7::before {
+    bottom: 35px;
+    content: "LM";
+}
+
+#player8::before {
+    bottom: 35px;
+    content: "CDM";
+}
+
+#player9::before {
+    bottom: 35px;
+    content: "CDM";
+}
+
+#player10::before {
+    bottom: 35px;
+    content: "ST";
+}
+
+#player11::before {
+    bottom: 35px;
+    content: "CF";
+}
+
+
+
+.players-container div img:hover {
+    filter: drop-shadow(0 0 0.75rem #FFD700);
+    cursor: pointer;
+}
+
+.playerCard {
+    width: 120px;
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 150px;
+}
+
+.player-card img {
+    width: 100px;
+    align-self: center;
+}
+
+.player-card p {
+    text-align: center;
+}
+
+.formation-container {
+    /* background-color: #13151d; */
+    /* box-shadow: 0 0 97px 5px #13151d; */
+    color: grey;
+    font-size: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: "Bungee Spice", sans-serif;
+    align-items: center;
+    padding: 40px 0px;
+
+}
+
+.formation-container .formations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.formation-container .formations div {
+    background-color: #292929;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    transition: 0.3s background-color ease;
+    cursor: pointer;
+    width: 140px;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.players {
+    display: none;
+}
+
+.formation-container .formations div:hover {
+    background-color: #FFD700;
+
+}
+
+.formation-container .formations .active {
+    background-color: orangered;
+}
+
+.my-container .bench {
+    margin-top: 220px;
+    font-family: "Bungee Spice", sans-serif;
+}
+
+.bench .bench-button,
+.all-players {
+    font-size: 30px;
+    padding: 20px 0;
+    width: 440px;
+}
+
+.rotate90 {
+    transform: rotate(180deg);
+}
+
+.bench .bench-button,
+.all-players {
+    background-color: #292929;
+    color: white;
+    text-align: center;
+    transition: 0.3s background-color ease;
+    cursor: pointer;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bench .bench-button:hover,
+.all-players:hover {
+    background-color: orangered;
+}
+
+/* /////////////////////////////////////////////// */
+
+
+
 /* ----------------- players list ------------------------- */
 
 .players {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     padding: 30px;
 }
+
+.show-players {
+    display: flex;
+}
+
 
 .players-heading {
     display: flex;
@@ -85,6 +418,7 @@ hr {
     width: 100%;
     padding: 10px 50px;
 }
+
 
 .players h1 {
     padding: 30px;
@@ -101,8 +435,8 @@ hr {
 .players .players-main .players-all {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background-color: var(--dark-color);
-    width: 100%;
+    /* background-color: var(--dark-color); */
+    /* width: 100%; */
     border-radius: 10px;
     padding: 20px 0;
 }
@@ -216,7 +550,6 @@ hr {
 
 /* -----------------  MODAL  ------------------ */
 .modal-container {
-  
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;

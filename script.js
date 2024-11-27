@@ -230,3 +230,14 @@ function setSuccessFor(input) {
     const oneInput = input.parentElement;
     oneInput.className = 'one-input success';
 }
+
+const benchButton = document.getElementById('bench-button');
+const players = document.getElementById('players');
+
+benchButton.addEventListener('click', () => {
+    players.classList.toggle('show-players');
+    // benchButton.firstElementChild.style.transform = "rotate(180deg)";
+    benchButton.firstElementChild.classList.toggle('rotate90')
+
+
+})
