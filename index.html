@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUT Champions</title>
     <link rel="shortcut icon" href="assets/game.png" type="image/x-icon">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,105 +15,175 @@
         <h1 class="main-title">EA FC 25 Players</h1>
         <div class="players-main">
             <div class="players-all" id="players-all">
-                <!-- ==================  add player here ==================== -->
+                <!-- ============  add player here ============ -->
             </div>
             <div class="players-filter">
-                <a href="#" id="add-player" class="main-button">Add player</a>
+                <a id="add-player" class="main-button">Add player</a>
                 <a href="#" class="secondary-button">Go back to Team</a>
             </div>
 
             <div class="modal-container" id="modal-container">
                 <div class="modal">
                     <h1>Add a player here</h1>
-                    <form>
+                    <form id="form" class="form">
                         <div class="one-line">
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="name">Player Name</label>
-                                <input type="text" id="name" placeholder="e.g Lionel Messi">
+                                <div class="one-input">
+                                    <input type="text" id="name" placeholder="e.g Lionel Messi">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="photo">Image URL</label>
-                                <input type="text" id="photo"
-                                    placeholder="https://cdn.sofifa.net/players/158/023/25_120.png">
+                                <div class="one-input">
+                                    <input type="text" id="photo"
+                                        placeholder="https://cdn.sofifa.net/players/158/023/25_120.png">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="name">Position</label>
-                                <select name="positions" id="position">
-                                    <option disabled selected>Select a position</option>
-                                    <option value="GK">GK</option>
-                                    <option value="RB">RB</option>
-                                    <option value="CB">CB</option>
-                                    <option value="CDM">CDM</option>
-                                    <option value="CM">CM</option>
-                                    <option value="CAM">CAM</option>
-                                    <option value="RM">RM</option>
-                                    <option value="LM">LM</option>
-                                    <option value="RW">RW</option>
-                                    <option value="LW">LW</option>
-                                    <option value="CF">CF</option>
-                                    <option value="ST">ST</option>
-                                </select>
+                                <div class="one-input">
+
+                                    <select name="positions" id="position">
+                                        <option disabled selected value="">Select a position</option>
+                                        <option value="GK">GK</option>
+                                        <option value="RB">RB</option>
+                                        <option value="CB">CB</option>
+                                        <option value="CDM">CDM</option>
+                                        <option value="CM">CM</option>
+                                        <option value="CAM">CAM</option>
+                                        <option value="RM">RM</option>
+                                        <option value="LM">LM</option>
+                                        <option value="RW">RW</option>
+                                        <option value="LW">LW</option>
+                                        <option value="CF">CF</option>
+                                        <option value="ST">ST</option>
+                                    </select>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
                         </div>
                         <div class="one-line">
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="nationality">Nationality</label>
-                                <input type="text" id="nationality" placeholder="e.g Argentina">
+                                <div class="one-input">
+                                    <input type="text" id="nationality" placeholder="e.g Argentina">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="flag">Country flag</label>
-                                <input type="text" id="flag"
-                                    placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                                <div class="one-input">
+                                    <input type="text" id="flag"
+                                        placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="club">Club</label>
-                                <input type="text" id="club" placeholder="e.g Inter Miami">
+                                <div class="one-input">
+                                    <input type="text" id="club" placeholder="e.g Inter Miami">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
                         </div>
                         <div class="one-line">
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="logo">Club logo</label>
-                                <input type="text" id="logo"
-                                    placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                                <div class="one-input">
+                                    <input type="text" id="logo"
+                                        placeholder="e.g https://cdn.sofifa.net/players/158/023/25_120.png">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="rating">Rating</label>
-                                <input type="number" id="rating" placeholder="e.g 95">
+                                <div class="one-input">
+                                    <input type="number" id="rating" placeholder="e.g 95">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
                         </div>
                         <hr>
-
                         <div class="one-line">
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="pace">Pace</label>
-                                <input type="number" id="pace" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="pace" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="shooting">Shooting</label>
-                                <input type="number" id="shooting" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="shooting" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="passing">Passing</label>
-                                <input type="number" id="passing" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="passing" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
                         </div>
                         <div class="one-line">
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="dribbling">Dribbling</label>
-                                <input type="number" id="dribbling" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="dribbling" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="defending">Defending</label>
-                                <input type="number" id="defending" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="defending" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
-                            <div class="one-input">
+                            <div class="one-input-box">
                                 <label for="physical">Physical</label>
-                                <input type="number" id="physical" placeholder="e.g 99">
+                                <div class="one-input">
+                                    <input type="number" id="physical" placeholder="e.g 99">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-solid fa-exclamation"></i>
+                                    <small>Error message</small>
+                                </div>
                             </div>
                         </div>
                     </form>
                     <div class="buttons">
-                        <button class="main-button">Submit</button>
+                        <button class="main-button" id="submit-button" type="submit">Submit</button>
                         <button class="secondary-button" id="close">Close</button>
                     </div>
                 </div>
