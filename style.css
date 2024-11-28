@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --main-color: #12f7d6;
+    --dark-color: #292f36;
+    --electric-blue: #0078FF;
+    --neon-purple: #A020F0;
+    --slate-gray: #2F4F4F;
+    --white-color: #FFFFFF;
+    --dark-c: #1A1A1A;
+    --soft-gray: #F5F5F5;
+    --white-smoke: #F8F8F8;
+    --deep-orange: #FF4500;
+    --bright-yellow: #FFD700;
+}
+
+* {
+    color: inherit;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Red Hat Display", sans-serif;
+    background-color: var(--dark-c);
+    background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.5)), url("./assets/fifa-stadium2.webp");
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 65px 100px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dotted #efefef;
+}
+
+.main-title {
+    background-color: var(--dark-c);
+    color: var(--neon-purple);
+}
+
+.main-button,
+.secondary-button {
+    background-color: var(--neon-purple);
+    border: 0.5px solid var(--neon-purple);
+    border-radius: 5px;
+    min-width: fit-content;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.secondary-button {
+    background-color: var(--deep-orange);
+    border-color: var(--deep-orange);
+}
+
+.main-button:hover,
+.secondary-button:hover {
+    border-color: var(--bright-yellow)
+}
+
+.players-heading {
+    display: none !important;
+}
+
+.my-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.players-container {
+    background-size: cover;
+    width: 59%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    bottom: -10px;
+    left: 80px;
+    gap: 20px 0;
+}
+
+.pitch-image {
+    position: relative;
+    width: 850px;
+    filter: contrast(160%);
+}
+
+#player1,
+#player2,
+#player3,
+#player4,
+#player5,
+#player6,
+#player7,
+#player8,
+#player9,
+#player10,
+#player11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#player1 {
+    grid-area: 8 / 3 / 10 / 4;
+}
+
+#player2 {
+    grid-area: 6 / 4 / 8 / 6;
+}
+
+#player3 {
+    grid-area: 6 / 1 / 8 / 3;
+}
+
+#player4 {
+    grid-area: 6 / 2 / 8 / 4;
+}
+
+#player5 {
+    grid-area: 6 / 3 / 8 / 5;
+}
+
+#player6 {
+    grid-area: 4 / 4 / 6 / 6;
+}
+
+#player7 {
+    grid-area: 4 / 1 / 6 / 3;
+}
+
+#player8 {
+    grid-area: 4 / 2 / 6 / 4;
+}
+
+#player9 {
+    grid-area: 4 / 3 / 6 / 5;
+}
+
+#player10 {
+    grid-area: 2 / 3 / 4 / 5;
+}
+
+#player11 {
+    grid-area: 2 / 2 / 4 / 4;
+}
+
+#player11::before,
+#player10::before,
+#player9::before,
+#player8::before,
+#player7::before,
+#player6::before,
+#player5::before,
+#player4::before,
+#player3::before,
+#player2::before,
+#player1::before {
+    height: 25px;
+    width: 30px;
+    position: absolute;
+    border: 50%;
+    border-radius: 50%;
+    border: 2px solid #e6cc8c;
+    COLOR: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    font-size: 10px;
+    bottom: -18px;
+}
+
+#player1::before {
+    content: "GK";
+}
+
+#player2::before {
+    content: "RB";
+}
+
+#player3::before {
+    content: "LB";
+}
+
+#player4::before {
+    content: "CB";
+}
+
+#player5::before {
+    content: "CB";
+}
+
+#player6::before {
+    content: "RM";
+}
+
+#player7::before {
+    content: "LM";
+}
+
+#player8::before {
+    content: "CDM";
+}
+
+#player9::before {
+    content: "CDM";
+}
+
+#player10::before {
+    content: "ST";
+}
+
+#player11::before {
+    content: "ST";
+}
+
+.players-container div img:hover {
+    filter: drop-shadow(0 0 0.75rem #FFD700);
+    cursor: pointer;
+}
+
+.playerCard {
+    width: 120px;
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 150px;
+}
+
+.player-card img {
+    width: 100px;
+    align-self: center;
+}
+
+.player-card p {
+    text-align: center;
+}
+
+.formation-container {
+    color: grey;
+    font-size: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: "Bungee Spice", sans-serif;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.formation-container .formations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.formation-container .formations div {
+    background-color: #292929;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    transition: 0.3s background-color ease;
+    cursor: pointer;
+    width: 140px;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.players {
+    display: none;
+}
+
+.formation-container .formations div:hover {
+    background-color: #FFD700;
+}
+
+.formation-container .formations .active {
+    background-color: orangered;
+}
+
+.my-container .bench {
+    margin-top: 220px;
+    font-family: "Bungee Spice", sans-serif;
+}
+
+.bench .bench-button,
+.all-players {
+    font-size: 30px;
+    padding: 20px 0;
+    width: 440px;
+}
+
+.rotate90 {
+    transform: rotate(180deg);
+}
+
+.bench .bench-button,
+.all-players {
+    background-color: #292929;
+    color: white;
+    text-align: center;
+    transition: 0.3s background-color ease;
+    cursor: pointer;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bench .bench-button:hover,
+.all-players:hover {
+    background-color: orangered;
+}
+
+/* ----------------- players list ------------------------- */
+.players {
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 30px;
+}
+
+.show-players {
+    display: flex;
+}
+
+
+.players-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 50px;
+}
+
+.players h1 {
+    padding: 30px;
+}
+
+.players .players-main {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
+}
+
+.players .players-main .players-all {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    border-radius: 10px;
+    padding: 20px 0;
+    gap: 50px;
+    width: 100%;
+}
+
+.players .players-main .players-filter {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+    background-color: var(--dark-color);
+    padding: 20px;
+    min-width: fit-content;
+    border-radius: 10px;
+}
+
+.modal-container {
+    position: fixed;
+    opacity: 0;
+}
+
+/* ==============   Card   ============== */
+.card-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    position: relative;
+}
+
+.card-full .first-image {
+    height: 210px;
+}
+
+.card {
+    color: var(--white-color);
+    position: absolute;
+    bottom: -5px;
+}
+
+.card .card-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-top {
+    display: flex;
+    color: #d3cca3;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+}
+
+.card .card-top .info {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.card .card-top .info .position {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.card .card-top .image img {
+    width: 80px;
+}
+
+.card .card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.card .card-bottom .name {
+    color: #d3cca3;
+    font-size: 10px;
+}
+
+.card .card-bottom .stats ul {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    font-size: 6px;
+}
+
+.card .card-bottom .stats ul li {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.card .card-bottom .stats ul li span:first-child {
+    font-size: 6px;
+}
+
+.card .card-bottom .country-club {
+    display: flex;
+    margin-top: 1px;
+    align-items: center;
+    gap: 10px;
+}
+
+.card .country img,
+.card .club img {
+    width: 12px;
+}
+
+.highlighted {
+    filter: drop-shadow(0 0 1rem #9811ce);
+}
+
+.small-player-card {
+    height: 200px;
+    width: fit-content;
+}
+
+.image-small-player-card {
+    height: 200px;
+}
+
+.remove-bar {
+    &::before {
+        content: none !important;
+    }
+}
