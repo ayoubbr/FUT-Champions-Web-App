@@ -80,6 +80,7 @@ benchButton.addEventListener('click', () => {
 const playersContainer = document.getElementById('players-container');
 const playersAll = document.getElementById('players-all');
 let activeSlot = null;
+const scrollToPayers = document.getElementById('scroll-to-players');
 
 playersContainer.addEventListener('click', (event) => {
     const positionSlot = event.target.closest('.position-slot');
@@ -88,7 +89,11 @@ playersContainer.addEventListener('click', (event) => {
             activeSlot.classList.remove('highlighted');
         }
         positionSlot.classList.add('highlighted');
+        players.classList.add('show-players');
+        players.style.cursor = "pointer";
+        scrollToPayers.click();
         activeSlot = positionSlot;
+
     }
 });
 
@@ -103,6 +108,7 @@ playersAll.addEventListener('click', (event) => {
 
         activeSlot.classList.add('filled');
         activeSlot.classList.remove('highlighted');
+        scrollTo(0, 0);
         activeSlot = null;
     }
 });

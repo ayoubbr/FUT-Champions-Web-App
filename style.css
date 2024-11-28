@@ -185,7 +185,7 @@ hr {
     border: 50%;
     border-radius: 50%;
     border: 2px solid #e6cc8c;
-    COLOR: white;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -247,6 +247,10 @@ hr {
 
 .playerCard {
     width: 120px;
+}
+
+.card-full:hover {
+    filter: drop-shadow(0 0 1rem #9811ce);
 }
 
 .player-card {
