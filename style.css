@@ -217,19 +217,19 @@ hr {
 }
 
 #player6::before {
-    content: "RM";
+    content: "RW";
 }
 
 #player7::before {
-    content: "LM";
+    content: "LW";
 }
 
 #player8::before {
-    content: "CDM";
+    content: "CM";
 }
 
 #player9::before {
-    content: "CDM";
+    content: "CM";
 }
 
 #player10::before {
@@ -382,7 +382,7 @@ hr {
 
 .players .players-main .players-all {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
     border-radius: 10px;
     padding: 20px 0;
     gap: 50px;
