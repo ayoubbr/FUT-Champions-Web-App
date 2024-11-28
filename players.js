@@ -64,8 +64,7 @@ function createDiv(player) {
                             </div>
                             </div>`;
 }
-let listOfPLayers = getData();
-
+getData();
 
 const addPlayer = document.getElementById('add-player');
 const modalContainer = document.getElementById('modal-container');
@@ -228,3 +227,133 @@ function setSuccessFor(input) {
     const oneInput = input.parentElement;
     oneInput.className = 'one-input success';
 }
+
+
+
+position.addEventListener('change', (event) => {
+    const statsContainer = document.getElementById('stats-container');
+    statsContainer.innerHTML = '';
+
+    if (event.target.value === "GK") {
+        statsContainer.innerHTML =
+            `<div class="one-line">         
+            <div class="one-input-box">
+                <label for="diving">diving</label>
+                <div class="one-input">
+                    <input type="number" id="diving" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+            <div class="one-input-box">
+                <label for="handling">handling</label>
+                <div class="one-input">
+                    <input type="number" id="handling" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+            <div class="one-input-box">
+                <label for="kicking">kicking</label>
+                <div class="one-input">
+                    <input type="number" id="kicking" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+            </div>
+            <div class="one-line">
+            <div class="one-input-box">
+                <label for="reflexes">reflexes</label>
+                <div class="one-input">
+                    <input type="number" id="reflexes" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+            <div class="one-input-box">
+                <label for="speed">speed</label>
+                <div class="one-input">
+                    <input type="number" id="speed" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+            <div class="one-input-box">
+                <label for="positioning">positioning</label>
+                <div class="one-input">
+                    <input type="number" id="positioning" placeholder="e.g 99">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-exclamation"></i>
+                    <small>Error message</small>
+                </div>
+            </div>
+        </div>`
+    } else {
+        statsContainer.innerHTML =
+            `<div class="one-line">
+        <div class="one-input-box">
+            <label for="pace">Pace</label>
+            <div class="one-input">
+                <input type="number" id="pace" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamat ion"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+        <div class="one-input-box">
+            <label for="shooting">Shooting</label>
+            <div class="one-input">
+                <input type="number" id="shooting" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamation"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+        <div class="one-input-box">
+            <label for="passing">Passing</label>
+            <div class="one-input">
+                <input type="number" id="passing" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamation"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+        </div>
+        <div class="one-line">
+        <div class="one-input-box">
+            <label for="dribbling">Dribbling</label>
+            <div class="one-input">
+                <input type="number" id="dribbling" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamation"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+        <div class="one-input-box">
+            <label for="defending">Defending</label>
+            <div class="one-input">
+                <input type="number" id="defending" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamation"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+        <div class="one-input-box">
+            <label for="physical">Physical</label>
+            <div class="one-input">
+                <input type="number" id="physical" placeholder="e.g 99">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-exclamation"></i>
+                <small>Error message</small>
+            </div>
+        </div>
+    </div>`
+    }
+})
+

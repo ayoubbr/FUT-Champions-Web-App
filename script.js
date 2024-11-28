@@ -122,9 +122,8 @@ playersAll.addEventListener('click', (event) => {
         if (activeSlot.classList.contains('filled')) {
 
             const previousPlayerName = activeSlot.querySelector('.name').textContent.trim();
-            console.log(previousPlayerName);
             const index = selectedPlayers.indexOf(previousPlayerName);
-            console.log(index);
+
             if (index > -1) {
                 selectedPlayers.splice(index, 1);
             }
