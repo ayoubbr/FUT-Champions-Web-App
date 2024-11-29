@@ -3,7 +3,6 @@ let dataOfPlayers;
 const benchButton = document.getElementById('bench-button');
 const players = document.getElementById('players');
 const playersContainer = document.getElementById('players-container');
-const playersAll = document.getElementById('players-all');
 
 async function getData() {
     let data = await fetch("./players.json");
@@ -78,7 +77,6 @@ let activeSlot = null;
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
     // benchButton .firstElementChild.classList.toggle('rotate90');
-
     benchButton.classList.toggle('active-bench');
 
     if (!activeSlot) {
@@ -102,7 +100,6 @@ playersContainer.addEventListener('click', (event) => {
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
             benchButton.classList.toggle('active-bench');
-       
         }
         positionSlot.classList.add('highlighted');
         players.classList.add('show-players');
@@ -115,13 +112,15 @@ playersContainer.addEventListener('click', (event) => {
         filtredData = dataOfPlayers.filter(player =>
             player.position === slotPosition && !selectedPlayers.includes(player.name)
         );
+
         benchButton.classList.toggle('active-bench');
-        playersAll.innerHTML = '';
+
+        allPlayers.innerHTML = '';
         filtredData.forEach(player => createDiv(player));
     }
 });
 
-playersAll.addEventListener('click', (event) => {
+allPlayers.addEventListener('click', (event) => {
     const playerCard = event.target.closest('.card-full');
 
     if (playerCard && activeSlot) {
@@ -144,7 +143,6 @@ playersAll.addEventListener('click', (event) => {
         activeSlot.classList.remove('highlighted');
         // benchButton.firstElementChild.classList.toggle('rotate90');
         benchButton.click();
-
 
         scrollTo(0, 0);
         selectedPlayers.push(playerName);

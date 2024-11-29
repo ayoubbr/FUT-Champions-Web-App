@@ -327,7 +327,6 @@ hr {
 }
 
 .my-container .bench {
-    /* margin-top: 220px; */
     font-family: "Bungee Spice", sans-serif;
 }
 
@@ -336,16 +335,15 @@ hr {
 .bench .bench-button,
 .all-players {
     font-size: 30px;
-    /* padding: 20px 0; */
     width: 440px;
     height: 70px;
 }
 
 .rotate90 {
-    transform: rotate(180deg); 
+    transform: rotate(180deg);
 }
 
-.active-bench{
+.active-bench {
     background-color: var(--deep-orange) !important;
 }
 
@@ -378,6 +376,7 @@ hr {
 
 .show-players {
     display: flex;
+    margin-top: 100px;
 }
 
 
@@ -408,6 +407,7 @@ hr {
     padding: 20px 0;
     gap: 50px;
     width: 100%;
+    justify-content: center;
 }
 
 .players .players-main .players-filter {
@@ -543,6 +543,10 @@ hr {
         flex-wrap: wrap;
     }
 
+    .players {
+        padding: 0;
+    }
+
     .players .players-main {
         justify-content: center;
     }
@@ -567,6 +571,10 @@ hr {
     .playerCard {
         width: 100px;
     }
+
+    .show-players {
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 720px) {
@@ -574,6 +582,10 @@ hr {
         position: relative;
         width: 100%;
         column-gap: 35px;
+    }
+
+    .players {
+        padding: 0;
     }
 
     .pitch-image {
@@ -642,6 +654,10 @@ hr {
         grid-template-columns: repeat(auto-fit, minmax(30px, 50px));
         padding: 10px 0;
         gap: 30px;
+    }
+
+    .show-players {
+        margin-top: 20px;
     }
 
 }
