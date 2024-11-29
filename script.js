@@ -72,16 +72,22 @@ function createDiv(player) {
 
 getData();
 let filtredData = [];
-
+let activeSlot = null;
 
 
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
-    benchButton.firstElementChild.classList.toggle('rotate90');
+    // benchButton .firstElementChild.classList.toggle('rotate90');
+
+    benchButton.classList.toggle('active-bench');
+
+    if (!activeSlot) {
+        dataOfPlayers.forEach(player => createDiv(player));
+    }
 })
 
 
-let activeSlot = null;
+
 let selectedPlayers = [];
 const scrollToPayers = document.getElementById('scroll-to-players');
 document.querySelectorAll('.position-slot').forEach(slot => {
@@ -95,6 +101,8 @@ playersContainer.addEventListener('click', (event) => {
     if (positionSlot) {
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
+            benchButton.classList.toggle('active-bench');
+       
         }
         positionSlot.classList.add('highlighted');
         players.classList.add('show-players');
@@ -107,7 +115,7 @@ playersContainer.addEventListener('click', (event) => {
         filtredData = dataOfPlayers.filter(player =>
             player.position === slotPosition && !selectedPlayers.includes(player.name)
         );
-
+        benchButton.classList.toggle('active-bench');
         playersAll.innerHTML = '';
         filtredData.forEach(player => createDiv(player));
     }
@@ -134,6 +142,10 @@ playersAll.addEventListener('click', (event) => {
         activeSlot.classList.add("remove-bar");
         activeSlot.classList.add('filled');
         activeSlot.classList.remove('highlighted');
+        // benchButton.firstElementChild.classList.toggle('rotate90');
+        benchButton.click();
+
+
         scrollTo(0, 0);
         selectedPlayers.push(playerName);
         activeSlot = null;

@@ -84,10 +84,17 @@ hr {
     align-items: center;
     width: 100%;
     padding: 10px 50px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 750px) {
+    .players-heading {
+        justify-content: center;
+    }
 }
 
 .players h1 {
-    padding: 30px;
+    padding: 3px;
 }
 
 .players .players-main {
@@ -100,14 +107,16 @@ hr {
 
 .players .players-main .players-all {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 155px));
     background-color: var(--dark-color);
     width: 100%;
     border-radius: 10px;
     padding: 20px 0;
+    column-gap: 100px;
+    justify-content: center;
 }
 
-.players .players-main .players-filter {
+.players .players-filter {
     display: flex;
     align-items: start;
     justify-content: start;
@@ -116,7 +125,8 @@ hr {
     padding: 20px;
     min-width: fit-content;
     border-radius: 10px;
-
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 /* ==============   Card   ============== */
@@ -278,7 +288,7 @@ hr {
 }
 
 .one-input-box label {
-    font-weight: 600px;
+    font-weight: 600;
     text-transform: capitalize;
 }
 
