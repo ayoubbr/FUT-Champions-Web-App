@@ -87,13 +87,13 @@ benchButton.addEventListener('click', () => {
     benchButton.classList.toggle('active-bench');
 
     if (activeSlot) {
-        dataOfPlayers.forEach(player => createDiv(player));
         activeSlot.classList.remove('highlighted');
         activeSlot = null
     }
-    if (!allPlayers.hasChildNodes() && !activeSlot) {
-        dataOfPlayers.forEach(player => createDiv(player));
-    }
+
+    allPlayers.innerHTML = '';
+    const unselectedPlayers = dataOfPlayers.filter(player => !selectedPlayers.includes(player.name));
+    unselectedPlayers.forEach(player => createDiv(player));
 })
 
 
