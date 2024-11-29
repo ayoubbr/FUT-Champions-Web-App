@@ -77,7 +77,11 @@ let activeSlot = null;
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
     benchButton.classList.toggle('active-bench');
-
+    if (activeSlot) {
+        dataOfPlayers.forEach(player => createDiv(player));
+        activeSlot.classList.remove('highlighted');
+        activeSlot = null
+    }
     if (!activeSlot) {
         dataOfPlayers.forEach(player => createDiv(player));
     }
