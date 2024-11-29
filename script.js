@@ -76,7 +76,6 @@ let activeSlot = null;
 
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
-    // benchButton .firstElementChild.classList.toggle('rotate90');
     benchButton.classList.toggle('active-bench');
 
     if (!activeSlot) {
@@ -97,9 +96,11 @@ document.querySelectorAll('.position-slot').forEach(slot => {
 playersContainer.addEventListener('click', (event) => {
     const positionSlot = event.target.closest('.position-slot');
     if (positionSlot) {
+        if (!benchButton.classList.contains('active-bench')) {
+            benchButton.classList.add('active-bench');
+        }
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
-            benchButton.classList.toggle('active-bench');
         }
         positionSlot.classList.add('highlighted');
         players.classList.add('show-players');
@@ -112,8 +113,6 @@ playersContainer.addEventListener('click', (event) => {
         filtredData = dataOfPlayers.filter(player =>
             player.position === slotPosition && !selectedPlayers.includes(player.name)
         );
-
-        benchButton.classList.toggle('active-bench');
 
         allPlayers.innerHTML = '';
         filtredData.forEach(player => createDiv(player));
@@ -141,7 +140,6 @@ allPlayers.addEventListener('click', (event) => {
         activeSlot.classList.add("remove-bar");
         activeSlot.classList.add('filled');
         activeSlot.classList.remove('highlighted');
-        // benchButton.firstElementChild.classList.toggle('rotate90');
         benchButton.click();
 
         scrollTo(0, 0);
