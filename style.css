@@ -33,7 +33,7 @@ body {
     background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.5)), url("./assets/fifa-stadium2.webp");
     background-repeat: no-repeat;
     height: 100%;
-    padding: 65px 100px;
+    padding: 4% 6%;
 }
 
 ul {
@@ -73,6 +73,7 @@ hr {
     border-color: var(--deep-orange);
 }
 
+
 .main-button:hover,
 .secondary-button:hover {
     border-color: var(--bright-yellow)
@@ -83,27 +84,38 @@ hr {
 }
 
 .my-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    /* flex-wrap: wrap; */
     gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.stad-players {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .players-container {
     background-size: cover;
-    width: 59%;
+    width: 70%;
     min-height: 100vh;
     display: grid;
     grid-template-rows: repeat(9, 1fr);
     grid-template-columns: repeat(5, 1fr);
     position: absolute;
-    bottom: -10px;
-    left: 80px;
+    /* bottom: 0px;
+    left: 0; */
     gap: 20px 0;
+    bottom: -82px;
+
 }
 
 .pitch-image {
-    position: relative;
-    width: 850px;
+    /* position: relative; */
+    width: 100%;
     filter: contrast(160%);
 }
 
@@ -185,7 +197,7 @@ hr {
     border: 50%;
     border-radius: 50%;
     border: 2px solid #e6cc8c;
-    COLOR: white;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,19 +229,19 @@ hr {
 }
 
 #player6::before {
-    content: "RM";
+    content: "RW";
 }
 
 #player7::before {
-    content: "LM";
+    content: "LW";
 }
 
 #player8::before {
-    content: "CDM";
+    content: "CM";
 }
 
 #player9::before {
-    content: "CDM";
+    content: "CM";
 }
 
 #player10::before {
@@ -247,6 +259,10 @@ hr {
 
 .playerCard {
     width: 120px;
+}
+
+.card-full:hover {
+    filter: drop-shadow(0 0 1rem #9811ce);
 }
 
 .player-card {
@@ -282,6 +298,8 @@ hr {
     display: flex;
     justify-content: center;
     gap: 10px;
+    height: 70px;
+    align-items: center;
 }
 
 .formation-container .formations div {
@@ -309,19 +327,24 @@ hr {
 }
 
 .my-container .bench {
-    margin-top: 220px;
     font-family: "Bungee Spice", sans-serif;
 }
+
+
 
 .bench .bench-button,
 .all-players {
     font-size: 30px;
-    padding: 20px 0;
     width: 440px;
+    height: 70px;
 }
 
 .rotate90 {
     transform: rotate(180deg);
+}
+
+.active-bench {
+    background-color: var(--deep-orange) !important;
 }
 
 .bench .bench-button,
@@ -353,6 +376,7 @@ hr {
 
 .show-players {
     display: flex;
+    margin-top: 100px;
 }
 
 
@@ -378,11 +402,12 @@ hr {
 
 .players .players-main .players-all {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
     border-radius: 10px;
     padding: 20px 0;
     gap: 50px;
     width: 100%;
+    justify-content: center;
 }
 
 .players .players-main .players-filter {
@@ -510,4 +535,129 @@ hr {
     &::before {
         content: none !important;
     }
+}
+
+@media (max-width: 1420px) {
+    .my-container {
+        gap: 120px;
+        flex-wrap: wrap;
+    }
+
+    .players {
+        padding: 0;
+    }
+
+    .players .players-main {
+        justify-content: center;
+    }
+
+    .players .players-main .players-all {
+        justify-content: center;
+    }
+
+    .players-container {
+        bottom: auto;
+        width: 100%;
+    }
+
+    .formation-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .playerCard {
+        width: 100px;
+    }
+
+    .show-players {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 720px) {
+    .players-container {
+        position: relative;
+        width: 100%;
+        column-gap: 35px;
+    }
+
+    .players {
+        padding: 0;
+    }
+
+    .pitch-image {
+        display: none;
+    }
+
+    .playerCard {
+        width: 70px;
+    }
+
+    .formation-container {
+        width: 80%;
+
+    }
+
+    .formation-container div {
+        font-size: 20px !important;
+        width: 100% !important;
+    }
+
+    .card {
+        bottom: 4px;
+    }
+
+    .card .card-top .image img {
+        width: 40px;
+    }
+
+    .card-full .first-image {
+        height: 80%;
+    }
+
+    .card .card-top {
+        justify-content: center;
+        align-items: start;
+        width: 100%;
+    }
+
+    .card .card-top .info {
+        font-size: 10px;
+    }
+
+    .card .card-bottom .name {
+        font-size: 6px;
+    }
+
+    .stats>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-bottom .stats {
+        visibility: hidden;
+    }
+
+    .card-bottom .country-club {
+        visibility: hidden;
+    }
+
+    .card-full {
+        height: 139px;
+    }
+
+    .players .players-main .players-all {
+        grid-template-columns: repeat(auto-fit, minmax(30px, 50px));
+        padding: 10px 0;
+        gap: 30px;
+    }
+
+    .show-players {
+        margin-top: 20px;
+    }
+
 }

@@ -84,10 +84,17 @@ hr {
     align-items: center;
     width: 100%;
     padding: 10px 50px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 750px) {
+    .players-heading {
+        justify-content: center;
+    }
 }
 
 .players h1 {
-    padding: 30px;
+    padding: 3px;
 }
 
 .players .players-main {
@@ -100,14 +107,16 @@ hr {
 
 .players .players-main .players-all {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 155px));
     background-color: var(--dark-color);
     width: 100%;
     border-radius: 10px;
     padding: 20px 0;
+    column-gap: 100px;
+    justify-content: center;
 }
 
-.players .players-main .players-filter {
+.players .players-filter {
     display: flex;
     align-items: start;
     justify-content: start;
@@ -116,7 +125,8 @@ hr {
     padding: 20px;
     min-width: fit-content;
     border-radius: 10px;
-
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 /* ==============   Card   ============== */
@@ -129,9 +139,12 @@ hr {
     position: relative;
 }
 
-.card-full image {
+.card-full .image {
     position: relative;
     width: 200px;
+    display: flex;
+    margin-bottom: 5px;
+    gap: -10px;
 }
 
 .card {
@@ -165,6 +178,22 @@ hr {
 .card .card-top .info .position {
     font-size: 12px;
     font-weight: 500;
+}
+
+.card .card-top .image a {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--deep-orange);
+    font-size: 25px;
+    margin-left: -10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card .card-top .image a:hover {
+    color: #A020F0;
 }
 
 .card .card-top .image img {
@@ -216,7 +245,6 @@ hr {
 
 /* -----------------  MODAL  ------------------ */
 .modal-container {
-  
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
@@ -277,8 +305,15 @@ hr {
     width: 200px;
 }
 
+.stats-container {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
 .one-input-box label {
-    font-weight: 600px;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 .one-input-box .one-input {
@@ -343,6 +378,7 @@ hr {
     width: 100%;
     height: 40px;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .one-input-box input:focus,
@@ -363,3 +399,16 @@ select:focus {
 }
 
 /* -------------------------------------------- */
+@media (max-width:780px) {
+    .one-input-box label {
+        font-size: 12px;
+    }
+
+    .modal form {
+        gap: 40px;
+    }
+
+    .error small {
+        font-size: 10px;
+    }
+}

@@ -1,18 +1,30 @@
 const allPlayers = document.getElementById("players-all");
+let dataOfPlayers;
+
+const benchButton = document.getElementById('bench-button');
+const players = document.getElementById('players');
+const playersContainer = document.getElementById('players-container');
 
 async function getData() {
-    let data = await fetch("./players.json");
-    let dataObject = await data.json();
-
-    let players = dataObject.players;
-
-    for (let index = 0; index < players.length; index++) {
-        createDiv(players[index]);
+    const storedData = localStorage.getItem("playersData");
+    if (storedData) {
+        dataOfPlayers = JSON.parse(storedData);
+    } else {
+        const data = await fetch("./players.json");
+        const dataObject = await data.json();
+        dataOfPlayers = dataObject.players;
+        saveToLocalStorage();
     }
+    renderPlayers();
+}
+
+
+function renderPlayers() {
+    allPlayers.innerHTML = "";
+    dataOfPlayers.forEach((player) => createDiv(player));
 }
 
 function createDiv(player) {
-
     const element = document.createElement('div');
     element.classList.add("card-full");
     element.innerHTML = ` <img src="assets/player-card.webp" class="first-image" alt="">
@@ -64,45 +76,91 @@ function createDiv(player) {
                             </div>
                             </div>`;
 }
-let listOfPLayers = getData();
 
 
+let filtredData = [];
+let activeSlot = null;
 
-
-const benchButton = document.getElementById('bench-button');
-const players = document.getElementById('players');
 
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
-    benchButton.firstElementChild.classList.toggle('rotate90')
+    benchButton.classList.toggle('active-bench');
+
+    if (activeSlot) {
+        activeSlot.classList.remove('highlighted');
+        activeSlot = null
+    }
+
+    allPlayers.innerHTML = '';
+    const unselectedPlayers = dataOfPlayers.filter(player => !selectedPlayers.includes(player.name));
+    unselectedPlayers.forEach(player => createDiv(player));
 })
 
-const playersContainer = document.getElementById('players-container');
-const playersAll = document.getElementById('players-all');
-let activeSlot = null;
+
+
+let selectedPlayers = [];
+const scrollToPayers = document.getElementById('scroll-to-players');
+document.querySelectorAll('.position-slot').forEach(slot => {
+    const beforeStyles = window.getComputedStyle(slot, '::before');
+    const beforeContent = beforeStyles.getPropertyValue('content').slice(1, -1);
+    slot.setAttribute('data-position', beforeContent);
+});
 
 playersContainer.addEventListener('click', (event) => {
     const positionSlot = event.target.closest('.position-slot');
     if (positionSlot) {
+        if (!benchButton.classList.contains('active-bench')) {
+            benchButton.classList.add('active-bench');
+        }
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
         }
         positionSlot.classList.add('highlighted');
+        players.classList.add('show-players');
+        players.style.cursor = "pointer";
+
+        scrollToPayers.click();
         activeSlot = positionSlot;
+        const slotPosition = positionSlot.getAttribute('data-position');
+
+        filtredData = dataOfPlayers.filter(player =>
+            player.position === slotPosition && !selectedPlayers.includes(player.name)
+        );
+
+        allPlayers.innerHTML = '';
+        filtredData.forEach(player => createDiv(player));
     }
 });
 
-
-playersAll.addEventListener('click', (event) => {
+allPlayers.addEventListener('click', (event) => {
     const playerCard = event.target.closest('.card-full');
 
     if (playerCard && activeSlot) {
+        const playerName = playerCard.querySelector('.name').textContent.trim();
+
+        if (activeSlot.classList.contains('filled')) {
+
+            const previousPlayerName = activeSlot.querySelector('.name').textContent.trim();
+            const index = selectedPlayers.indexOf(previousPlayerName);
+
+            if (index > -1) {
+                selectedPlayers.splice(index, 1);
+            }
+        }
+
         activeSlot.innerHTML = playerCard.innerHTML;
         activeSlot.classList.add("card-full");
         activeSlot.classList.add("remove-bar");
-
         activeSlot.classList.add('filled');
         activeSlot.classList.remove('highlighted');
+        benchButton.click();
+
+        scrollTo(0, 0);
+        selectedPlayers.push(playerName);
         activeSlot = null;
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    getData();
 });
