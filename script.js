@@ -1,19 +1,27 @@
 const allPlayers = document.getElementById("players-all");
 let dataOfPlayers;
+
 const benchButton = document.getElementById('bench-button');
 const players = document.getElementById('players');
 const playersContainer = document.getElementById('players-container');
 
 async function getData() {
-    let data = await fetch("./players.json");
-    let dataObject = await data.json();
-
-    dataOfPlayers = dataObject.players;
-
-    for (let index = 0; index < dataOfPlayers.length; index++) {
-        createDiv(dataOfPlayers[index]);
+    const storedData = localStorage.getItem("playersData");
+    if (storedData) {
+        dataOfPlayers = JSON.parse(storedData);
+    } else {
+        const data = await fetch("./players.json");
+        const dataObject = await data.json();
+        dataOfPlayers = dataObject.players;
+        saveToLocalStorage();
     }
+    renderPlayers();
+}
 
+
+function renderPlayers() {
+    allPlayers.innerHTML = "";
+    dataOfPlayers.forEach((player) => createDiv(player));
 }
 
 function createDiv(player) {
@@ -69,7 +77,7 @@ function createDiv(player) {
                             </div>`;
 }
 
-getData();
+
 let filtredData = [];
 let activeSlot = null;
 
@@ -77,12 +85,13 @@ let activeSlot = null;
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
     benchButton.classList.toggle('active-bench');
+
     if (activeSlot) {
         dataOfPlayers.forEach(player => createDiv(player));
         activeSlot.classList.remove('highlighted');
         activeSlot = null
     }
-    if (!activeSlot) {
+    if (!allPlayers.hasChildNodes() && !activeSlot) {
         dataOfPlayers.forEach(player => createDiv(player));
     }
 })
@@ -150,4 +159,8 @@ allPlayers.addEventListener('click', (event) => {
         selectedPlayers.push(playerName);
         activeSlot = null;
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    getData();
 });

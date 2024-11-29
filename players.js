@@ -1,14 +1,26 @@
 const allPlayers = document.getElementById("players-all");
+let dataOfPlayers = [];
 
 async function getData() {
-    let data = await fetch("./players.json");
-    let dataObject = await data.json();
-
-    let players = dataObject.players;
-
-    for (let index = 0; index < players.length; index++) {
-        createDiv(players[index]);
+    const storedData = localStorage.getItem("playersData");
+    if (storedData) {
+        dataOfPlayers = JSON.parse(storedData);
+    } else {
+        const data = await fetch("./players.json");
+        const dataObject = await data.json();
+        dataOfPlayers = dataObject.players;
+        saveToLocalStorage();
     }
+    renderPlayers();
+}
+
+function renderPlayers() {
+    allPlayers.innerHTML = "";
+    dataOfPlayers.forEach((player) => createDiv(player));
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("playersData", JSON.stringify(dataOfPlayers));
 }
 
 function createDiv(player) {
@@ -64,7 +76,6 @@ function createDiv(player) {
                             </div>
                             </div>`;
 }
-getData();
 
 const addPlayer = document.getElementById('add-player');
 const modalContainer = document.getElementById('modal-container');
@@ -89,10 +100,7 @@ const logo = document.getElementById('logo');
 const rating = document.getElementById('rating');
 const submitButton = document.getElementById('submit-button');
 
-submitButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    checkInputs();
-});
+
 
 position.addEventListener('change', (event) => {
     const statsContainer = document.getElementById('stats-container');
@@ -223,6 +231,8 @@ position.addEventListener('change', (event) => {
 
 
 function checkInputs() {
+    let isValid = true;
+
     const playerNameValue = playerName.value.trim();
     const photoValue = photo.value.trim();
     const positionValue = position.value.trim();
@@ -242,6 +252,44 @@ function checkInputs() {
         reflexesValue = document.getElementById("reflexes")?.value.trim();
         speedValue = document.getElementById("speed")?.value.trim();
         positioningValue = document.getElementById("positioning")?.value.trim();
+
+        if (divingValue === '') {
+            setErrorFor(diving, 'diving cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(diving);
+        }
+        if (handlingValue === '') {
+            setErrorFor(handling, 'handling cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(handling);
+        }
+        if (kickingValue === '') {
+            setErrorFor(kicking, 'kicking cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(kicking);
+        }
+        if (reflexesValue === '') {
+            setErrorFor(reflexes, 'reflexes cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(reflexes);
+        }
+        if (speedValue === '') {
+            setErrorFor(speed, 'speedl cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(speed);
+        }
+        if (positioningValue === '') {
+            setErrorFor(positioning, 'positioning cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(positioning);
+        }
+
     } else {
         paceValue = document.getElementById("pace")?.value.trim();
         shootingValue = document.getElementById("shooting")?.value.trim();
@@ -249,134 +297,106 @@ function checkInputs() {
         dribblingValue = document.getElementById("dribbling")?.value.trim();
         defendingValue = document.getElementById("defending")?.value.trim();
         physicalValue = document.getElementById("physical")?.value.trim();
-    }
 
-    if (positionValue === "GK") {
-        if (divingValue === '') {
-            setErrorFor(diving, 'diving cannot be empty!');
-        } else {
-            setSuccessFor(diving);
-        }
-        if (handlingValue === '') {
-            setErrorFor(handling, 'handling cannot be empty!');
-        } else {
-            setSuccessFor(handling);
-        }
-        if (kickingValue === '') {
-            setErrorFor(kicking, 'kicking cannot be empty!');
-        } else {
-            setSuccessFor(kicking);
-        }
-        if (reflexesValue === '') {
-            setErrorFor(reflexes, 'reflexes cannot be empty!');
-        } else {
-            setSuccessFor(reflexes);
-        }
-        if (speedValue === '') {
-            setErrorFor(speed, 'speedl cannot be empty!');
-        } else {
-            setSuccessFor(speed);
-        }
-        if (positioningValue === '') {
-            setErrorFor(positioning, 'positioning cannot be empty!');
-        } else {
-            setSuccessFor(positioning);
-        }
-    }
-
-    else {
         if (paceValue === '') {
             setErrorFor(pace, 'Pace cannot be empty!');
+            isValid = false;
         } else {
             setSuccessFor(pace);
         }
-
         if (shootingValue === '') {
             setErrorFor(shooting, 'Shooting cannot be empty!');
+            isValid = false;
         } else {
             setSuccessFor(shooting);
         }
-
         if (passingValue === '') {
             setErrorFor(passing, 'Passing cannot be empty!');
+            isValid = false;
         } else {
             setSuccessFor(passing);
         }
-
         if (dribblingValue === '') {
             setErrorFor(dribbling, 'Dribbling cannot be empty!');
+            isValid = false;
         } else {
-
             setSuccessFor(dribbling);
         }
-
         if (defendingValue === '') {
             setErrorFor(defending, 'Defending cannot be empty!');
+            isValid = false;
         } else {
             setSuccessFor(defending);
         }
 
         if (physicalValue === '') {
             setErrorFor(physical, 'Physical cannot be empty!');
+            isValid = false;
         } else {
             setSuccessFor(physical);
         }
     }
 
+
     if (playerNameValue === '') {
         setErrorFor(playerName, 'Player name cannot be empty!');
+        isValid = false;
     } else {
         setSuccessFor(playerName);
     }
-
     if (photoValue === '') {
         setErrorFor(photo, 'Photo cannot be empty!');
-    }
-    else if (!URL.canParse(photoValue)) {
+        isValid = false;
+    } else if (!URL.canParse(photoValue)) {
         setErrorFor(photo, 'Photo url is not valid!');
-    }
-    else {
+        isValid = false;
+    } else {
         setSuccessFor(photo);
     }
-
     if (positionValue === '') {
         setErrorFor(position, 'Position cannot be empty!');
+        isValid = false;
     } else {
         setSuccessFor(position);
     }
-
     if (nationalityValue === '') {
         setErrorFor(nationality, 'Nationality cannot be empty!');
+        isValid = false;
     } else {
         setSuccessFor(nationality);
     }
-
     if (flagValue === '') {
         setErrorFor(flag, 'Flag cannot be empty!');
+        isValid = false;
     } else if (!URL.canParse(flagValue)) {
         setErrorFor(flag, 'flag url is not valid!');
+        isValid = false;
     } else {
         setSuccessFor(flag);
     }
-
     if (clubValue === '') {
         setErrorFor(club, 'Club cannot be empty!');
+        isValid = false;
     } else {
         setSuccessFor(club);
     }
-
     if (logoValue === '') {
         setErrorFor(logo, 'Logo cannot be empty!');
+        isValid = false;
     } else if (!URL.canParse(logoValue)) {
         setErrorFor(logo, 'logo url is not valid!');
+        isValid = false;
     } else {
         setSuccessFor(logo);
     }
     if (ratingValue === '') {
         setErrorFor(rating, 'Rating be empty!');
+        isValid = false;
     } else {
         setSuccessFor(rating);
     }
+
+    return isValid;
 }
 
 function setErrorFor(input, message) {
@@ -394,3 +414,52 @@ function setSuccessFor(input) {
     if (!oneInput) return;
     oneInput.className = 'one-input success';
 }
+
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (checkInputs()) {
+        const newPlayer = {
+            name: playerName.value.trim(),
+            photo: photo.value.trim(),
+            position: position.value.trim(),
+            nationality: nationality.value.trim(),
+            flag: flag.value.trim(),
+            logo: logo.value.trim(),
+            rating: rating.value.trim(),
+            ...(position.value.trim() === "GK"
+                ? {
+                    diving: document.getElementById("diving").value.trim(),
+                    handling: document.getElementById("handling").value.trim(),
+                    kicking: document.getElementById("kicking").value.trim(),
+                    reflexes: document.getElementById("reflexes").value.trim(),
+                    speed: document.getElementById("speed").value.trim(),
+                    positioning: document.getElementById("positioning").value.trim(),
+                }
+                : {
+                    pace: document.getElementById("pace").value.trim(),
+                    shooting: document.getElementById("shooting").value.trim(),
+                    passing: document.getElementById("passing").value.trim(),
+                    dribbling: document.getElementById("dribbling").value.trim(),
+                    defending: document.getElementById("defending").value.trim(),
+                    physical: document.getElementById("physical").value.trim(),
+                }),
+
+
+        };
+
+        dataOfPlayers.push(newPlayer);
+        saveToLocalStorage();
+        createDiv(newPlayer);
+        modalContainer.classList.remove("show");
+        form.reset();
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    getData();
+});
+
+
+
