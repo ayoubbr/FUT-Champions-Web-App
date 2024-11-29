@@ -139,9 +139,12 @@ hr {
     position: relative;
 }
 
-.card-full image {
+.card-full .image {
     position: relative;
     width: 200px;
+    display: flex;
+    margin-bottom: 5px;
+    gap: -10px;
 }
 
 .card {
@@ -175,6 +178,22 @@ hr {
 .card .card-top .info .position {
     font-size: 12px;
     font-weight: 500;
+}
+
+.card .card-top .image a {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--deep-orange);
+    font-size: 25px;
+    margin-left: -10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card .card-top .image a:hover {
+    color: #A020F0;
 }
 
 .card .card-top .image img {

@@ -18,6 +18,13 @@ function renderPlayers() {
     allPlayers.innerHTML = "";
     dataOfPlayers.forEach((player) => createDiv(player));
 }
+allPlayers.addEventListener('click', (event) => {
+    const deleteButton = event.target.closest('.delete-player');
+    if (deleteButton) {
+        const playerName = deleteButton.getAttribute('data-name');
+        deletePlayer(playerName);
+    }
+});
 
 function saveToLocalStorage() {
     localStorage.setItem("playersData", JSON.stringify(dataOfPlayers));
@@ -40,6 +47,7 @@ function createDiv(player) {
                                 </div>
                                 <div class="image">
                                     <img src="${player.photo}" alt="">
+                               <a class="delete-player" data-name="${player.name}"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </div>
                             <div class="card-bottom">
@@ -73,9 +81,22 @@ function createDiv(player) {
                                         <img src="${player.logo}" alt="">
                                     </div>
                                 </div>
+                                
                             </div>
                             </div>`;
 }
+
+
+function deletePlayer(playerName) {
+    const confirmed = window.confirm(`Are you sure you want to delete ${playerName}?`);
+    if (confirmed) {
+        dataOfPlayers = dataOfPlayers.filter(player => player.name !== playerName);
+        localStorage.setItem("playersData", JSON.stringify(dataOfPlayers));
+        renderPlayers();
+        alert(`${playerName} has been deleted.`);
+    }
+}
+
 
 const addPlayer = document.getElementById('add-player');
 const modalContainer = document.getElementById('modal-container');
