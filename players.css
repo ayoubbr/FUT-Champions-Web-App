@@ -226,7 +226,6 @@ hr {
 
 /* -----------------  MODAL  ------------------ */
 .modal-container {
-
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
@@ -285,6 +284,12 @@ hr {
     gap: 6px;
     font-size: 14px;
     width: 200px;
+}
+
+.stats-container {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .one-input-box label {
@@ -375,3 +380,16 @@ select:focus {
 }
 
 /* -------------------------------------------- */
+@media (max-width:780px) {
+    .one-input-box label {
+        font-size: 12px;
+    }
+
+    .modal form {
+        gap: 40px;
+    }
+
+    .error small {
+        font-size: 10px;
+    }
+}
