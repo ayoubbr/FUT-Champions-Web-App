@@ -18,6 +18,7 @@ function renderPlayers() {
     allPlayers.innerHTML = "";
     dataOfPlayers.forEach((player) => createDiv(player));
 }
+
 allPlayers.addEventListener('click', (event) => {
     const deleteButton = event.target.closest('.delete-player');
     if (deleteButton) {
@@ -31,7 +32,6 @@ function saveToLocalStorage() {
 }
 
 function createDiv(player) {
-
     const element = document.createElement('div');
     element.classList.add("card-full");
     element.innerHTML = ` <img src="assets/player-card.webp" class="first-image" alt="">
@@ -97,7 +97,6 @@ function deletePlayer(playerName) {
     }
 }
 
-
 const addPlayer = document.getElementById('add-player');
 const modalContainer = document.getElementById('modal-container');
 const close = document.getElementById('close');
@@ -120,8 +119,6 @@ const club = document.getElementById('club');
 const logo = document.getElementById('logo');
 const rating = document.getElementById('rating');
 const submitButton = document.getElementById('submit-button');
-
-
 
 position.addEventListener('change', (event) => {
     const statsContainer = document.getElementById('stats-container');
@@ -358,7 +355,6 @@ function checkInputs() {
         }
     }
 
-
     if (playerNameValue === '') {
         setErrorFor(playerName, 'Player name cannot be empty!');
         isValid = false;
@@ -465,8 +461,6 @@ submitButton.addEventListener('click', (e) => {
                     defending: document.getElementById("defending").value.trim(),
                     physical: document.getElementById("physical").value.trim(),
                 }),
-
-
         };
 
         dataOfPlayers.push(newPlayer);
@@ -477,10 +471,6 @@ submitButton.addEventListener('click', (e) => {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
     getData();
 });
-
-
-
