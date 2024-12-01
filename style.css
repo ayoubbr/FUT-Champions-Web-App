@@ -564,6 +564,21 @@ hr {
     bottom: -5px;
 }
 
+.player-error-position{
+    width: 30px;
+    height: 30px;
+    color: var(--bright-yellow);
+    background-color: var(--deep-orange);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    left: 100px;
+    top: -30px;
+    display: none;
+}
+
 .card .card-inner {
     display: flex;
     flex-direction: column;
