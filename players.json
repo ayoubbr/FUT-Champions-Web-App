@@ -39,7 +39,7 @@
       "nationality": "Belgium",
       "flag": "https://cdn.sofifa.net/flags/be.png",
       "club": "Manchester City",
-      "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+      "logo": "https://cdn.sofifa.net/meta/team/9/120.png",
       "rating": 91,
       "pace": 74,
       "shooting": 86,
@@ -64,7 +64,25 @@
       "defending": 39,
       "physical": 77
     },
+  
     {
+      "name": "Karim Benzema",
+      "photo": "https://cdn.sofifa.net/players/165/153/25_120.png",
+      "position": "ST",
+      "nationality": "France",
+      "flag": "https://cdn.sofifa.net/flags/fr.png",
+      "club": "Al-Ittihad",
+      "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
+      "rating": 90,
+      "pace": 77,
+      "shooting": 90,
+      "passing": 83,
+      "dribbling": 88,
+      "defending": 40,
+      "physical": 78
+    },
+  
+  {
       "name": "Virgil van Dijk",
       "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
       "position": "CB",
@@ -114,7 +132,7 @@
     },
     {
       "name": "Mohamed Salah",
-      "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
+      "photo": "https://cdn.sofifa.net/players/209/331/25_120.png",
       "position": "RW",
       "nationality": "Egypt",
       "flag": "https://cdn.sofifa.net/flags/eg.png",
@@ -209,54 +227,6 @@
       "physical": 56
     },
     {
-      "name": "Karim Benzema",
-      "photo": "https://cdn.sofifa.net/players/165/153/25_120.png",
-      "position": "ST",
-      "nationality": "France",
-      "flag": "https://cdn.sofifa.net/flags/fr.png",
-      "club": "Al-Ittihad",
-      "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
-      "rating": 90,
-      "pace": 77,
-      "shooting": 90,
-      "passing": 83,
-      "dribbling": 88,
-      "defending": 40,
-      "physical": 78
-    },
-    {
-      "name": "Erling Haaland",
-      "photo": "https://cdn.sofifa.net/players/239/085/25_120.png",
-      "position": "ST",
-      "nationality": "Norway",
-      "flag": "https://cdn.sofifa.net/flags/no.png",
-      "club": "Manchester City",
-      "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
-      "rating": 91,
-      "pace": 89,
-      "shooting": 94,
-      "passing": 65,
-      "dribbling": 80,
-      "defending": 45,
-      "physical": 88
-    },
-    {
-      "name": "N'Golo Kanté",
-      "photo": "https://cdn.sofifa.net/players/215/914/25_120.png",
-      "position": "CDM",
-      "nationality": "France",
-      "flag": "https://cdn.sofifa.net/flags/fr.png",
-      "club": "Al-Ittihad",
-      "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
-      "rating": 87,
-      "pace": 77,
-      "shooting": 66,
-      "passing": 75,
-      "dribbling": 82,
-      "defending": 88,
-      "physical": 82
-    },
-    {
       "name": "Alphonso Davies",
       "photo": "https://cdn.sofifa.net/players/234/396/25_120.png",
       "position": "LB",
@@ -327,6 +297,7 @@
       "nationality": "England",
       "flag": "https://cdn.sofifa.net/flags/gb-eng.png",
       "club": "Liverpool",
+      "logo": "https://cdn.sofifa.net/meta/team/8/120.png",
       "rating": 87,
       "pace": 76,
       "shooting": 66,
@@ -384,6 +355,40 @@
       "physical": 71
     },
     {
+      "name": "Erling Haaland",
+      "photo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+      "position": "ST",
+      "nationality": "Norway",
+      "flag": "https://cdn.sofifa.net/flags/no.png",
+      "club": "Manchester City",
+      "logo": "https://cdn.sofifa.net/meta/team/9/120.png",
+      "rating": 91,
+      "pace": 89,
+      "shooting": 94,
+      "passing": 65,
+      "dribbling": 80,
+      "defending": 45,
+      "physical": 88
+    },
+
+    {
+      "name": "N'Golo Kanté",
+      "photo": "https://cdn.sofifa.net/players/215/914/25_120.png",
+      "position": "CDM",
+      "nationality": "France",
+      "flag": "https://cdn.sofifa.net/flags/fr.png",
+      "club": "Al-Ittihad",
+      "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
+      "rating": 87,
+      "pace": 77,
+      "shooting": 66,
+      "passing": 75,
+      "dribbling": 82,
+      "defending": 88,
+      "physical": 82
+    },
+ 
+    {
       "name": "Ismael Saibari",
       "photo": "https://cdn.sofifa.net/players/259/480/25_120.png",
       "position": "CM",
@@ -399,6 +404,7 @@
       "defending": 55,
       "physical": 84
     },
+    
     {
       "name": "Gianluigi Donnarumma",
       "photo": "https://cdn.sofifa.net/players/230/621/25_120.png",
