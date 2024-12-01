@@ -47,7 +47,10 @@ function createDiv(player) {
                                 </div>
                                 <div class="image">
                                     <img src="${player.photo}" alt="">
-                               <a class="delete-player" data-name="${player.name}"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
+                                <div class="edit-delete">
+                                    <a class="edit-player" data-name="${player.name}"><i class="fa-solid fa-pen-clip"></i></a>
+                                    <a class="delete-player" data-name="${player.name}"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </div>
                             <div class="card-bottom">
