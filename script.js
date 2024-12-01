@@ -40,6 +40,9 @@ function createDiv(player) {
                                 <div class="image">
                                     <img src="${player.photo}" alt="">
                                 </div>
+                                 <div class="player-error-position">
+                                   <span>!!!</span>
+                                </div>
                             </div>
                             <div class="card-bottom">
                                 <div class="name">${player.name}</div>
@@ -82,7 +85,7 @@ let activeSlot = null;
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
     benchButton.classList.toggle('active-bench');
-    
+
     if (activeSlot) {
         activeSlot.classList.remove('highlighted');
         activeSlot = null
@@ -107,7 +110,6 @@ playersContainer.addEventListener('click', (event) => {
     if (positionSlot) {
         if (!benchButton.classList.contains('active-bench')) {
             benchButton.classList.add('active-bench');
-
         }
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
@@ -123,8 +125,6 @@ playersContainer.addEventListener('click', (event) => {
         filtredData = dataOfPlayers.filter(player =>
             player.position === slotPosition && !selectedPlayers.includes(player.name)
         );
-
-        console.log(filtredData);
 
         allPlayers.innerHTML = '';
         filtredData.forEach(player => createDiv(player));
@@ -181,9 +181,12 @@ const player9 = document.getElementById("player9");
 const player10 = document.getElementById("player10");
 const player11 = document.getElementById("player11");
 
+
+
 formation433.addEventListener('click', () => {
     playersContainer.classList.remove('formation-442', 'formation-343');
     playersContainer.classList.add('formation-433');
+    player5.attributes.dataPosition.value = "LB";
     player6.attributes.dataPosition.value = "CM";
     player7.attributes.dataPosition.value = "CDM";
     player9.attributes.dataPosition.value = "RW";
@@ -191,12 +194,23 @@ formation433.addEventListener('click', () => {
     formation433.classList.add('active');
     formation442.classList.remove('active');
     formation343.classList.remove('active');
+
+    const errorPosition = player6.children[1].children[0].children[1].children[0].innerText;
+
+    filtredData = dataOfPlayers.find(player =>
+        player.name === errorPosition
+    );
+
+    if (player6.attributes.dataPosition.value != filtredData.position) {
+        player6.children[1].children[0].children[0].children[2].style.display = "flex";
+    }
 });
 
 formation442.addEventListener('click', () => {
     playersContainer.classList.remove('formation-433', 'formation-343');
     playersContainer.classList.add('formation-442');
     player6.attributes.dataPosition.value = "RW";
+    player5.attributes.dataPosition.value = "LB";
     player7.attributes.dataPosition.value = "CM";
     player9.attributes.dataPosition.value = "LW";
     player11.attributes.dataPosition.value = "ST";
@@ -205,12 +219,13 @@ formation442.addEventListener('click', () => {
     formation343.classList.remove('active');
 });
 
-formation343.addEventListener('click', () => {    
+formation343.addEventListener('click', () => {
     playersContainer.classList.remove('formation-433', 'formation-442');
     playersContainer.classList.add('formation-343');
     player2.attributes.dataPosition.value = "CB";
     player5.attributes.dataPosition.value = "CM";
     player6.attributes.dataPosition.value = "CM";
+    player7.attributes.dataPosition.value = "CM";
     player9.attributes.dataPosition.value = "RW";
     player11.attributes.dataPosition.value = "LW";
     formation343.classList.add('active');

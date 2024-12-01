@@ -96,12 +96,15 @@ hr {
     justify-content: space-between;
     padding: 30px;
     width: 100%;
+    background-image: linear-gradient(rgba(52, 48, 48, 0.6), rgba(19, 18, 57, 0.842));
+    border-radius: 30px;
+    background-repeat: no-repeat;
 }
 
 .players .players-main .players-all {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 155px));
-    background-color: var(--dark-color);
+    /* background-color: var(--dark-color); */
     width: 100%;
     border-radius: 10px;
     padding: 20px 0;
@@ -133,10 +136,8 @@ hr {
 
 .card-full .image {
     position: relative;
-    width: 200px;
     display: flex;
     margin-bottom: 5px;
-    gap: -10px;
 }
 
 .card {
@@ -152,10 +153,11 @@ hr {
 
 .card .card-top {
     display: flex;
-    color: #d3cca3;
-    justify-content: flex-start;
+    color: #ece6c3;
+    justify-content: center;
     align-items: start;
-    width: 170px;
+    width: 190px;
+    padding:  0  12px 0 ;
 }
 
 .card .card-top .info {
@@ -168,24 +170,46 @@ hr {
 }
 
 .card .card-top .info .position {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
 }
 
-.card .card-top .image a {
-    height: 30px;
+.card .card-top .edit-delete {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card .card-top .delete-player,
+.card .card-top .edit-player {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--deep-orange);
-    font-size: 25px;
+    font-size: 20px;
     margin-left: -10px;
     cursor: pointer;
-    transition: 0.3s;
+    background-color: rgba(239, 231, 231, 0.409);
+    padding: 5px;
+    border-radius: 8px;
+    transition: 0.4s;
 }
 
-.card .card-top .image a:hover {
-    color: #A020F0;
+.card .card-top .delete-player {
+    color: red;
+}
+
+.card .card-top .edit-player {
+    color: var(--neon-purple);
+}
+
+.card .card-top .delete-player:hover {
+    background-color: red;
+    color: var(--white-smoke);
+}
+
+.card .card-top .edit-player:hover {
+    background-color: var(--neon-purple);
+    color: var(--white-smoke);
 }
 
 .card .card-top .image img {
@@ -201,7 +225,8 @@ hr {
 }
 
 .card .card-bottom .name {
-    color: #d3cca3;
+    color: #ece09b;
+    width: max-content;
 }
 
 .card .card-bottom .stats ul {
@@ -258,7 +283,7 @@ hr {
 .modal {
     background-color: var(--white-color);
     width: auto;
-    max-width: 100%;
+    max-width: 90%;
     padding: 30px 50px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -384,8 +409,15 @@ select:focus {
 }
 
 .modal .secondary-button,
-.modal .main-button {
+.modal .main-button, .modal .saveButton {
     width: 160px
+}
+
+.modal .saveButton{
+    display: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ============ Media Query ================ */
@@ -395,11 +427,31 @@ select:focus {
     }
 
     .modal form {
-        gap: 40px;
+        gap: 30px;
     }
 
     .error small {
         font-size: 10px;
+    }
+
+    .modal {
+        background-color: var(--white-color);
+        max-width: 85%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .modal h1 {
+        font-size: 26px;
+    }
+
+    .modal .buttons {
+        margin-top: 16px;
     }
 }
 
