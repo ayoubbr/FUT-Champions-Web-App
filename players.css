@@ -69,7 +69,6 @@ hr {
 }
 
 /* ----------------- players list ------------------------- */
-
 .players {
     display: flex;
     flex-direction: column;
@@ -85,12 +84,6 @@ hr {
     width: 100%;
     padding: 10px 50px;
     flex-wrap: wrap;
-}
-
-@media (max-width: 750px) {
-    .players-heading {
-        justify-content: center;
-    }
 }
 
 .players h1 {
@@ -130,7 +123,6 @@ hr {
 }
 
 /* ==============   Card   ============== */
-
 .card-full {
     display: flex;
     justify-content: center;
@@ -228,7 +220,6 @@ hr {
 .card .card-bottom .stats ul li span:first-child {
     font-size: 8px;
 }
-
 
 .card .card-bottom .country-club {
     display: flex;
@@ -351,7 +342,6 @@ hr {
     color: #2ecc71;
 }
 
-
 .one-input.error i.fa-exclamation {
     visibility: visible;
     color: #e74c3c;
@@ -398,7 +388,7 @@ select:focus {
     width: 160px
 }
 
-/* -------------------------------------------- */
+/* ============ Media Query ================ */
 @media (max-width:780px) {
     .one-input-box label {
         font-size: 12px;
@@ -410,5 +400,11 @@ select:focus {
 
     .error small {
         font-size: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    .players-heading {
+        justify-content: center;
     }
 }

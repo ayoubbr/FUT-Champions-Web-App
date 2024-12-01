@@ -30,8 +30,8 @@ html {
 body {
     font-family: "Red Hat Display", sans-serif;
     background-color: var(--dark-c);
-    background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.5)), url("./assets/fifa-stadium2.webp");
-    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(11, 11, 52, 0.897), rgba(0, 0, 0, 0.6)), url("./assets/fifa-stadium2.webp");
+    background-repeat: repeat;
     height: 100%;
     padding: 4% 6%;
 }
@@ -85,7 +85,6 @@ hr {
 
 .my-container {
     display: flex;
-    /* flex-wrap: wrap; */
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -106,15 +105,16 @@ hr {
     grid-template-rows: repeat(9, 1fr);
     grid-template-columns: repeat(5, 1fr);
     position: absolute;
-    /* bottom: 0px;
-    left: 0; */
-    gap: 20px 0;
-    bottom: -82px;
+    gap: 10px 0;
+    bottom: -55px;
+    transition: all 0.5s ease-in-out;
+}
 
+.players-container .position-slot {
+    transition: transform 0.5s ease-in-out;
 }
 
 .pitch-image {
-    /* position: relative; */
     width: 100%;
     filter: contrast(160%);
 }
@@ -145,7 +145,7 @@ hr {
 }
 
 #player3 {
-    grid-area: 6 / 1 / 8 / 3;
+    grid-area: 6 / 3 / 8 / 5;
 }
 
 #player4 {
@@ -153,7 +153,7 @@ hr {
 }
 
 #player5 {
-    grid-area: 6 / 3 / 8 / 5;
+    grid-area: 6 / 1 / 8 / 3;
 }
 
 #player6 {
@@ -161,7 +161,7 @@ hr {
 }
 
 #player7 {
-    grid-area: 4 / 1 / 6 / 3;
+    grid-area: 4 / 3 / 6 / 5;
 }
 
 #player8 {
@@ -169,7 +169,7 @@ hr {
 }
 
 #player9 {
-    grid-area: 4 / 3 / 6 / 5;
+    grid-area: 4 / 1 / 6 / 3;
 }
 
 #player10 {
@@ -191,10 +191,9 @@ hr {
 #player3::before,
 #player2::before,
 #player1::before {
-    height: 25px;
-    width: 30px;
+    height: 20px;
+    width: 23px;
     position: absolute;
-    border: 50%;
     border-radius: 50%;
     border: 2px solid #e6cc8c;
     color: white;
@@ -204,8 +203,8 @@ hr {
     z-index: 1;
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 1px;
-    font-size: 10px;
-    bottom: -18px;
+    font-size: 12px;
+    bottom: -12px;
 }
 
 #player1::before {
@@ -217,7 +216,7 @@ hr {
 }
 
 #player3::before {
-    content: "LB";
+    content: "CB";
 }
 
 #player4::before {
@@ -225,7 +224,7 @@ hr {
 }
 
 #player5::before {
-    content: "CB";
+    content: "LB";
 }
 
 #player6::before {
@@ -233,7 +232,7 @@ hr {
 }
 
 #player7::before {
-    content: "LW";
+    content: "CM";
 }
 
 #player8::before {
@@ -241,7 +240,7 @@ hr {
 }
 
 #player9::before {
-    content: "CM";
+    content: "LW";
 }
 
 #player10::before {
@@ -252,6 +251,113 @@ hr {
     content: "ST";
 }
 
+/* ======== 4-3-3 ============= */
+
+.formation-433 .position-slot#player6 {
+    grid-area: 4 / 4 / 6 / 5;
+}
+
+
+.formation-433 .position-slot#player7 {
+    grid-area: 4 / 3 / 6 / 4;
+}
+
+.formation-433 .position-slot#player8 {
+    grid-area: 4 / 2 / 6 / 3;
+}
+
+.formation-433 .position-slot#player9 {
+    grid-area: 2 / 4 / 4 / 6;
+
+}
+
+.formation-433 .position-slot#player10 {
+    grid-area: 2 / 2 / 4 / 5;
+}
+
+.formation-433 .position-slot#player11 {
+    grid-area: 2 / 1 / 4 / 3;
+}
+
+.formation-433 .position-slot#player6::before {
+    content: "CM";
+}
+
+.formation-433 .position-slot#player7::before {
+    content: "CDM";
+}
+
+.formation-433 .position-slot#player9::before {
+    content: "RW";
+}
+
+.formation-433 .position-slot#player11::before {
+    content: "LW";
+}
+
+/* ======== 3-4-3 ============= */
+
+.formation-343 .position-slot#player2 {
+    grid-area: 6 / 4 / 8 /4;
+}
+
+.formation-343 .position-slot#player3 {
+    grid-area: 6 / 3 / 8 / 3;
+}
+
+.formation-343 .position-slot#player4 {
+    grid-area: 6 / 2 / 8 / 2;
+}
+
+.formation-343 .position-slot#player5 {
+    grid-area: 4 / 4 / 6 / 6;
+}
+
+.formation-343 .position-slot#player6 {
+    grid-area: 4 / 3 / 6 / 5;
+}
+
+.formation-343 .position-slot#player7 {
+    grid-area: 4 / 2 / 6 / 4;
+}
+
+.formation-343 .position-slot#player8 {
+    grid-area: 4 / 1 / 6 / 3;
+}
+
+.formation-343 .position-slot#player9 {
+    grid-area: 2 / 4 / 4 /4;
+}
+
+.formation-343 .position-slot#player10 {
+    grid-area: 2 / 3 / 4 / 3;
+}
+
+.formation-343 .position-slot#player11 {
+    grid-area: 2 / 2 / 4 / 2;
+}
+
+.formation-343 .position-slot#player2::before {
+    content: "CB";
+}
+
+.formation-343 .position-slot#player5::before {
+    content: "CM";
+}
+
+.formation-343 .position-slot#player6::before {
+    content: "CM";
+}
+
+.formation-343 .position-slot#player9::before {
+    content: "RW";
+}
+
+.formation-343 .position-slot#player11::before {
+    content: "LW";
+}
+
+/* ================================ */
 .players-container div img:hover {
     filter: drop-shadow(0 0 0.75rem #FFD700);
     cursor: pointer;
@@ -330,8 +436,6 @@ hr {
     font-family: "Bungee Spice", sans-serif;
 }
 
-
-
 .bench .bench-button,
 .all-players {
     font-size: 30px;
@@ -379,7 +483,6 @@ hr {
     margin-top: 100px;
 }
 
-
 .players-heading {
     display: flex;
     justify-content: space-between;
@@ -398,6 +501,7 @@ hr {
     justify-content: space-between;
     padding: 30px;
     width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(11, 11, 52, 0.897))
 }
 
 .players .players-main .players-all {
@@ -537,6 +641,7 @@ hr {
     }
 }
 
+/*================== Media Query =================*/
 @media (max-width: 1420px) {
     .my-container {
         gap: 120px;
@@ -577,11 +682,51 @@ hr {
     }
 }
 
+@media (min-width: 720px) and (max-width:880px) {
+    .players-container {
+        bottom: 100px;
+        position: relative;
+        width: 100%;
+        column-gap: 35px;
+        background-image: url(./assets/thestadium.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        filter: contrast(120%);
+    }
+
+    .pitch-image {
+        display: none;
+    }
+}
+
 @media (max-width: 720px) {
     .players-container {
         position: relative;
         width: 100%;
         column-gap: 35px;
+        background-image: url(./assets/thestadium.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        filter: contrast(120%);
+    }
+
+    #player11::before,
+    #player10::before,
+    #player9::before,
+    #player8::before,
+    #player7::before,
+    #player6::before,
+    #player5::before,
+    #player4::before,
+    #player3::before,
+    #player2::before,
+    #player1::before {
+        height: 15px;
+        width: 18px;
+        font-size: 8px;
+        bottom: 12px;
     }
 
     .players {
@@ -659,5 +804,4 @@ hr {
     .show-players {
         margin-top: 20px;
     }
-
 }

@@ -18,7 +18,6 @@ async function getData() {
     renderPlayers();
 }
 
-
 function renderPlayers() {
     allPlayers.innerHTML = "";
     dataOfPlayers.forEach((player) => createDiv(player));
@@ -77,15 +76,13 @@ function createDiv(player) {
                             </div>`;
 }
 
-
 let filtredData = [];
 let activeSlot = null;
-
 
 benchButton.addEventListener('click', () => {
     players.classList.toggle('show-players');
     benchButton.classList.toggle('active-bench');
-
+    
     if (activeSlot) {
         activeSlot.classList.remove('highlighted');
         activeSlot = null
@@ -96,21 +93,21 @@ benchButton.addEventListener('click', () => {
     unselectedPlayers.forEach(player => createDiv(player));
 })
 
-
-
-let selectedPlayers = [];
-const scrollToPayers = document.getElementById('scroll-to-players');
 document.querySelectorAll('.position-slot').forEach(slot => {
     const beforeStyles = window.getComputedStyle(slot, '::before');
     const beforeContent = beforeStyles.getPropertyValue('content').slice(1, -1);
-    slot.setAttribute('data-position', beforeContent);
+    slot.setAttribute('dataPosition', beforeContent);
 });
+
+let selectedPlayers = [];
+const scrollToPayers = document.getElementById('scroll-to-players');
 
 playersContainer.addEventListener('click', (event) => {
     const positionSlot = event.target.closest('.position-slot');
     if (positionSlot) {
         if (!benchButton.classList.contains('active-bench')) {
             benchButton.classList.add('active-bench');
+
         }
         if (activeSlot) {
             activeSlot.classList.remove('highlighted');
@@ -121,16 +118,20 @@ playersContainer.addEventListener('click', (event) => {
 
         scrollToPayers.click();
         activeSlot = positionSlot;
-        const slotPosition = positionSlot.getAttribute('data-position');
+        const slotPosition = positionSlot.getAttribute('dataPosition');
 
         filtredData = dataOfPlayers.filter(player =>
             player.position === slotPosition && !selectedPlayers.includes(player.name)
         );
 
+        console.log(filtredData);
+
         allPlayers.innerHTML = '';
         filtredData.forEach(player => createDiv(player));
     }
 });
+
+
 
 allPlayers.addEventListener('click', (event) => {
     const playerCard = event.target.closest('.card-full');
@@ -163,4 +164,56 @@ allPlayers.addEventListener('click', (event) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     getData();
+});
+
+const formation433 = document.getElementById('formation-433');
+const formation442 = document.getElementById('formation-442');
+const formation343 = document.getElementById('formation-343');
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+const player3 = document.getElementById("player3");
+const player4 = document.getElementById("player4");
+const player5 = document.getElementById("player5");
+const player6 = document.getElementById("player6");
+const player7 = document.getElementById("player7");
+const player8 = document.getElementById("player8");
+const player9 = document.getElementById("player9");
+const player10 = document.getElementById("player10");
+const player11 = document.getElementById("player11");
+
+formation433.addEventListener('click', () => {
+    playersContainer.classList.remove('formation-442', 'formation-343');
+    playersContainer.classList.add('formation-433');
+    player6.attributes.dataPosition.value = "CM";
+    player7.attributes.dataPosition.value = "CDM";
+    player9.attributes.dataPosition.value = "RW";
+    player11.attributes.dataPosition.value = "LW";
+    formation433.classList.add('active');
+    formation442.classList.remove('active');
+    formation343.classList.remove('active');
+});
+
+formation442.addEventListener('click', () => {
+    playersContainer.classList.remove('formation-433', 'formation-343');
+    playersContainer.classList.add('formation-442');
+    player6.attributes.dataPosition.value = "RW";
+    player7.attributes.dataPosition.value = "CM";
+    player9.attributes.dataPosition.value = "LW";
+    player11.attributes.dataPosition.value = "ST";
+    formation442.classList.add('active');
+    formation433.classList.remove('active');
+    formation343.classList.remove('active');
+});
+
+formation343.addEventListener('click', () => {    
+    playersContainer.classList.remove('formation-433', 'formation-442');
+    playersContainer.classList.add('formation-343');
+    player2.attributes.dataPosition.value = "CB";
+    player5.attributes.dataPosition.value = "CM";
+    player6.attributes.dataPosition.value = "CM";
+    player9.attributes.dataPosition.value = "RW";
+    player11.attributes.dataPosition.value = "LW";
+    formation343.classList.add('active');
+    formation433.classList.remove('active');
+    formation442.classList.remove('active');
 });
