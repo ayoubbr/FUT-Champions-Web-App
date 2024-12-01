@@ -272,7 +272,7 @@ hr {
 }
 
 .formation-433 .position-slot#player10 {
-    grid-area: 2 / 2 / 4 / 5;
+    grid-area: 2 / 3 / 4 / 4;
 }
 
 .formation-433 .position-slot#player11 {
@@ -346,6 +346,10 @@ hr {
 }
 
 .formation-343 .position-slot#player6::before {
+    content: "CM";
+}
+
+.formation-343 .position-slot#player7::before {
     content: "CM";
 }
 
@@ -464,9 +468,19 @@ hr {
     justify-content: center;
 }
 
+.all-players i,
+.bench-button>i {
+    color: var(--deep-orange);
+}
+
 .bench .bench-button:hover,
 .all-players:hover {
     background-color: orangered;
+}
+
+.all-players:hover i,
+.bench .bench-button:hover>i {
+    color: var(--bright-yellow)
 }
 
 /* ----------------- players list ------------------------- */
@@ -501,7 +515,8 @@ hr {
     justify-content: space-between;
     padding: 30px;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(11, 11, 52, 0.897))
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(11, 11, 52, 0.897));
+    border-radius: 30px;
 }
 
 .players .players-main .players-all {

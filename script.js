@@ -211,6 +211,7 @@ formation343.addEventListener('click', () => {
     player2.attributes.dataPosition.value = "CB";
     player5.attributes.dataPosition.value = "CM";
     player6.attributes.dataPosition.value = "CM";
+    player7.attributes.dataPosition.value = "CM";
     player9.attributes.dataPosition.value = "RW";
     player11.attributes.dataPosition.value = "LW";
     formation343.classList.add('active');
