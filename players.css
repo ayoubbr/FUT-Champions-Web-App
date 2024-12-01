@@ -409,8 +409,15 @@ select:focus {
 }
 
 .modal .secondary-button,
-.modal .main-button {
+.modal .main-button, .modal .saveButton {
     width: 160px
+}
+
+.modal .saveButton{
+    display: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ============ Media Query ================ */
