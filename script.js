@@ -184,6 +184,7 @@ const player11 = document.getElementById("player11");
 formation433.addEventListener('click', () => {
     playersContainer.classList.remove('formation-442', 'formation-343');
     playersContainer.classList.add('formation-433');
+    player5.attributes.dataPosition.value = "LB";
     player6.attributes.dataPosition.value = "CM";
     player7.attributes.dataPosition.value = "CDM";
     player9.attributes.dataPosition.value = "RW";
@@ -197,6 +198,7 @@ formation442.addEventListener('click', () => {
     playersContainer.classList.remove('formation-433', 'formation-343');
     playersContainer.classList.add('formation-442');
     player6.attributes.dataPosition.value = "RW";
+    player5.attributes.dataPosition.value = "LB";
     player7.attributes.dataPosition.value = "CM";
     player9.attributes.dataPosition.value = "LW";
     player11.attributes.dataPosition.value = "ST";
