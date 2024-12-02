@@ -29,7 +29,10 @@ function createDiv(player) {
     element.innerHTML = ` <img src="assets/player-card.webp" class="first-image" alt="">
                         <div class="card" ></div>`;
     allPlayers.appendChild(element);
-    const theCard = element.querySelector(".card");;
+    // note
+    const theCard = element.querySelector(".card");
+    console.log(theCard[0]);
+
 
     theCard.innerHTML = `<div class="card-inner">
                             <div class="card-top">
@@ -166,6 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     getData();
 });
 
+// change of formation
+
 const formation433 = document.getElementById('formation-433');
 const formation442 = document.getElementById('formation-442');
 const formation343 = document.getElementById('formation-343');
@@ -196,13 +201,14 @@ formation433.addEventListener('click', () => {
     formation343.classList.remove('active');
 
     const errorPosition = player6.children[1].children[0].children[1].children[0].innerText;
+    const newPosition = player6.children[1].children[0].children[0].children[2];
 
     filtredData = dataOfPlayers.find(player =>
         player.name === errorPosition
     );
 
     if (player6.attributes.dataPosition.value != filtredData.position) {
-        player6.children[1].children[0].children[0].children[2].style.display = "flex";
+        newPosition.style.display = "flex";
     }
 });
 
@@ -232,3 +238,20 @@ formation343.addEventListener('click', () => {
     formation433.classList.remove('active');
     formation442.classList.remove('active');
 });
+
+
+
+let anArray = [1, 4, 5, 7, 8, 3, 22, 52, 34, 0];
+
+function check(myArray, myEntier) {
+    result = false
+    myArray.forEach(e => {
+        if (e == myEntier) {
+            result = true;
+        }
+    });
+
+    return result;
+}
+
+console.log(check(anArray, 3));
